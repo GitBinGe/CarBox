@@ -10,6 +10,20 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+    signingConfigs {
+        facility {
+            keyAlias 'bin'
+            keyPassword 'bin720097'
+            storeFile file('./bin.keystore')
+            storePassword 'bin720097'
+        }
+        debug {
+            keyAlias 'bin'
+            keyPassword 'bin720097'
+            storeFile file('./bin.keystore')
+            storePassword 'bin720097'
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -20,9 +34,10 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:26.0.0-beta1'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:0.5'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:2.2.2'
+
+    compile 'com.github.GitBinGe:Android:5.4.1'
 }
