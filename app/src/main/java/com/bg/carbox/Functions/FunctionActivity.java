@@ -22,12 +22,14 @@ public class FunctionActivity extends PresenterActivity implements View.OnClickL
         int id = getIntent().getIntExtra("id", 0);
         ImageView iv = (ImageView) findViewById(R.id.bg);
         iv.setImageResource(id);
+
+        findViewById(R.id.back).setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.close:
+            case R.id.back:
                 finish();
                 break;
         }
