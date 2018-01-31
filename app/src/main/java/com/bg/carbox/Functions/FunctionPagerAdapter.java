@@ -4,10 +4,12 @@ import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.bg.carbox.R;
+import com.bg.library.Utils.Log.LogUtils;
 
 /**
  * Created by BinGe on 2018/1/31.
@@ -85,6 +87,6 @@ public class FunctionPagerAdapter extends PagerAdapter implements View.OnClickLi
 
     @Override
     public void onClick(View view) {
-
+        LogUtils.d("view click");
     }
 }
