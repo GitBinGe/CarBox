@@ -20,6 +20,7 @@ public class ConditionsView extends PointPageView {
 
         TextView titleView = findViewById(R.id.title);
         titleView.setText("Menu");
+        findViewById(R.id.function_btn).setOnClickListener(new FunctionButtonClick());
     }
 
 

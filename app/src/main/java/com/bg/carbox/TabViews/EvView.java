@@ -32,5 +32,7 @@ public class EvView extends FrameLayout {
 
         TextView titleView = findViewById(R.id.title);
         titleView.setText("EV Display");
+
+        findViewById(R.id.function_btn).setOnClickListener(new FunctionButtonClick());
     }
 }

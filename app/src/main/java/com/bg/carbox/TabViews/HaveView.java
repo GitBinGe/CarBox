@@ -33,5 +33,6 @@ public class HaveView extends FrameLayout {
         TextView titleView = findViewById(R.id.title);
         titleView.setText("HAVE");
 
+        findViewById(R.id.function_btn).setOnClickListener(new FunctionButtonClick());
     }
 }

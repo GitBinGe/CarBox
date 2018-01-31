@@ -31,5 +31,6 @@ public class SettingsView extends FrameLayout {
 
         TextView titleView = findViewById(R.id.title);
         titleView.setText("Settings");
+        findViewById(R.id.function_btn).setOnClickListener(new FunctionButtonClick());
     }
 }

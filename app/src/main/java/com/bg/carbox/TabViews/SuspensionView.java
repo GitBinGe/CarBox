@@ -31,5 +31,6 @@ public class SuspensionView extends FrameLayout {
 
         TextView titleView = findViewById(R.id.title);
         titleView.setText("Suspension");
+        findViewById(R.id.function_btn).setOnClickListener(new FunctionButtonClick());
     }
 }
