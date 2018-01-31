@@ -53,40 +53,14 @@
             android:background="@drawable/selector_settings" />
     </LinearLayout>
 
-    <LinearLayout
+
+    <com.bg.carbox.ContentViewPager
+        android:id="@+id/content_viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="98dp"
-        android:orientation="vertical">
+        android:layout_marginBottom="98dp">
 
-        <FrameLayout
-            android:id="@+id/top_bar"
-            android:layout_width="match_parent"
-            android:layout_height="60dp">
+    </com.bg.carbox.ContentViewPager>
 
-            <com.bg.carbox.Views.PointsView
-                android:id="@+id/points"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|center"
-                />
-
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <com.bg.carbox.ContentViewPager
-                android:id="@+id/content_viewpager"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-            </com.bg.carbox.ContentViewPager>
-
-        </FrameLayout>
-
-
-    </LinearLayout>
 
 </FrameLayout>

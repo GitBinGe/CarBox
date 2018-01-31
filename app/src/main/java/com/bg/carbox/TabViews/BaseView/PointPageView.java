@@ -5,13 +5,13 @@ import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.bg.carbox.R;
-import com.bg.carbox.TabViews.IPoint;
 import com.bg.carbox.Views.PointsView;
 import com.bg.library.Utils.Log.LogUtils;
 
@@ -19,7 +19,7 @@ import com.bg.library.Utils.Log.LogUtils;
  * Created by BinGe on 2018/1/31.
  */
 
-public class PointPageView extends FrameLayout implements IPoint, ViewPager.OnPageChangeListener {
+public class PointPageView extends FrameLayout implements  ViewPager.OnPageChangeListener {
 
     private PointsView mPointsView;
 
@@ -29,20 +29,23 @@ public class PointPageView extends FrameLayout implements IPoint, ViewPager.OnPa
 
     public PointPageView(@NonNull Context context) {
         super(context);
+        LayoutInflater.from(context).inflate(R.layout.main_page, this);
 
         mViewPager = new ViewPager(context);
         mAdapter = new ViewPagerAdapter();
         mViewPager.setAdapter(mAdapter);
         mViewPager.addOnPageChangeListener(this);
-        addView(mViewPager);
+
+        ViewGroup vg = findViewById(R.id.content);
+        vg.addView(mViewPager);
 
     }
 
     public void setPages(int[] ids) {
         mAdapter.setIds(ids);
+        setPointsView((PointsView) findViewById(R.id.points));
     }
 
-    @Override
     public void setPointsView(PointsView view) {
         mPointsView = view;
         mPointsView.setCount(mViewPager.getAdapter().getCount());
