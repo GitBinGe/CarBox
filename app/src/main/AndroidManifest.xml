@@ -24,6 +24,12 @@
                 <action android:name="FunctionActivity" />
             </intent-filter>
         </activity>
+        <activity android:name=".Functions.FunctionPageActivity"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="FunctionPageActivity" />
+            </intent-filter>
+        </activity>
         <activity android:name=".TestActivity"
             android:screenOrientation="landscape">
             <intent-filter>

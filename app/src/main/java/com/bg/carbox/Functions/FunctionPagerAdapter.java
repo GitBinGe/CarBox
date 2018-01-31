@@ -1,5 +1,6 @@
 package com.bg.carbox.Functions;
 
+import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.LinearLayout;
 
 import com.bg.carbox.R;
 import com.bg.library.Utils.Log.LogUtils;
+import com.bg.library.Utils.UI.ActivityUtils;
 
 /**
  * Created by BinGe on 2018/1/31.
@@ -34,6 +36,25 @@ public class FunctionPagerAdapter extends PagerAdapter implements View.OnClickLi
             R.drawable.selector_function_suspension,
             R.drawable.selector_function_ev,
             R.drawable.selector_function_communication,
+    };
+
+    private int pages[] = new int[]{
+            R.mipmap.pic_bcm,
+            R.mipmap.pic_hvac,
+            R.mipmap.pic_gauges,
+            R.mipmap.pic_window,
+            R.mipmap.pic_switch,
+            R.mipmap.pic_lights,
+            R.mipmap.pic_sensor_inputs,
+            R.mipmap.pic_obd,
+            R.mipmap.pic_fan,
+            R.mipmap.pic_heat,
+            R.mipmap.pic_keyless,
+            R.mipmap.pic_remote,
+            R.mipmap.pic_wheel,
+            R.mipmap.pic_suspension,
+            R.mipmap.pic_ev,
+            R.mipmap.pic_communication,
     };
 
     private View[] views = new View[ids.length / 10 + 1];
@@ -61,6 +82,7 @@ public class FunctionPagerAdapter extends PagerAdapter implements View.OnClickLi
                 int pos = position * 10 + i;
                 if (pos < ids.length) {
                     iv.setImageResource(ids[pos]);
+                    iv.setTag(pages[pos]);
                     iv.setOnClickListener(this);
                 } else {
                     iv.setImageBitmap(null);
@@ -72,6 +94,7 @@ public class FunctionPagerAdapter extends PagerAdapter implements View.OnClickLi
                 ImageView iv = (ImageView) row2.getChildAt(i);
                 int pos = position * 10 + i + row1.getChildCount();
                 if (pos < ids.length) {
+                    iv.setTag(pages[pos]);
                     iv.setImageResource(ids[pos]);
                     iv.setOnClickListener(this);
                 } else {
@@ -87,6 +110,9 @@ public class FunctionPagerAdapter extends PagerAdapter implements View.OnClickLi
 
     @Override
     public void onClick(View view) {
-        LogUtils.d("view click");
+        int id = (int) view.getTag();
+        Intent intent = new Intent(view.getContext(), FunctionActivity.class);
+        intent.putExtra("id", id);
+        ActivityUtils.pushActivity(view.getContext(), intent);
     }
 }
