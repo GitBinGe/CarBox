@@ -60,8 +60,16 @@
         android:orientation="vertical">
 
         <FrameLayout
+            android:id="@+id/top_bar"
             android:layout_width="match_parent"
             android:layout_height="60dp">
+
+            <com.bg.carbox.Views.PointsView
+                android:id="@+id/points"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                />
 
         </FrameLayout>
 
@@ -75,6 +83,7 @@
                 android:layout_height="match_parent">
 
             </com.bg.carbox.ContentViewPager>
+
         </FrameLayout>
 
 

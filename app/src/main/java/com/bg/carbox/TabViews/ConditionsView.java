@@ -11,21 +11,55 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.bg.carbox.R;
+import com.bg.carbox.Views.PointsView;
 import com.bg.library.Base.os.SystemInfo;
+import com.bg.library.Utils.Log.LogUtils;
 
 /**
  * Created by BinGe on 2018/1/31.
  */
 
-public class ConditionsView extends FrameLayout {
+public class ConditionsView extends FrameLayout implements IPoint, ViewPager.OnPageChangeListener {
 
+    private PointsView mPointsView;
+    private int position;
     private ViewPager mViewPager;
 
     public ConditionsView(@NonNull Context context) {
         super(context);
+
         mViewPager = new ViewPager(context);
         mViewPager.setAdapter(new ViewPagerAdapter());
+        mViewPager.addOnPageChangeListener(this);
         addView(mViewPager);
+
+    }
+
+    @Override
+    public void setPointsView(PointsView view) {
+        mPointsView = view;
+        mPointsView.setCount(mViewPager.getAdapter().getCount());
+        mPointsView.setPosition(position);
+    }
+
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+        LogUtils.d("onPageScrolled : " + mViewPager.getScrollX());
+        if (mPointsView != null) {
+            position = mViewPager.getScrollX() * 100 / mViewPager.getWidth() * (mViewPager.getAdapter().getCount() - 1);
+            mPointsView.setPosition(position);
+        }
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+        LogUtils.d("onPageSelected");
+
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+        LogUtils.d("onPageScrollStateChanged");
     }
 
     class ViewPagerAdapter extends PagerAdapter {
@@ -49,9 +83,8 @@ public class ConditionsView extends FrameLayout {
             if (view == null) {
                 FrameLayout root = new FrameLayout(container.getContext());
                 ImageView image = new ImageView(container.getContext());
-                int padding = SystemInfo.Screen.dip2px(5);
-                image.setPadding(padding, padding, padding, padding);
-                image.setBackgroundResource(ids[position]);
+//                image.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+                image.setImageResource(ids[position]);
                 FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
                         ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT,
                         Gravity.CENTER | Gravity.BOTTOM);

@@ -37,6 +37,10 @@ public class ContentPagerAdapter extends PagerAdapter {
         return views.length;
     }
 
+    public View getPage(int position) {
+        return views[position];
+    }
+
     @Override
     public boolean isViewFromObject(View view, Object object) {
         return view == object;
