@@ -5,9 +5,9 @@
 
     <LinearLayout
         android:id="@+id/tabs"
-        android:layout_gravity="bottom"
         android:layout_width="match_parent"
         android:layout_height="98dp"
+        android:layout_gravity="bottom"
         android:orientation="horizontal">
 
         <ImageView
@@ -58,20 +58,25 @@
         android:layout_height="match_parent"
         android:layout_marginBottom="98dp"
         android:orientation="vertical">
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="60dp">
 
         </FrameLayout>
-        <com.bg.carbox.ContentViewPager
-            android:id="@+id/content_viewpager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:background="@mipmap/content_background">
 
-        </com.bg.carbox.ContentViewPager>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.bg.carbox.ContentViewPager
+                android:id="@+id/content_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </com.bg.carbox.ContentViewPager>
+        </FrameLayout>
+
 
     </LinearLayout>
 
