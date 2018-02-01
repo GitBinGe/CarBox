@@ -17,7 +17,7 @@ import com.bg.library.Base.os.SystemInfo;
 public class PointsView extends View {
 
     private int count = 3;
-    private int radius = 25;
+    private int radius = 18;
     private Paint paint = new Paint();
     private float position = 50f;
 
