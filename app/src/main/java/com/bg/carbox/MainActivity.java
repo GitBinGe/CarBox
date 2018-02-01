@@ -17,16 +17,16 @@ public class MainActivity extends PresenterActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        DisplayMetrics metric = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(metric);
-
-        int width = metric.widthPixels;//宽度（PX）
-        int height = metric.heightPixels;//高度（PX）
-
-        float density = metric.density;//密度（0.75 / 1.0 / 1.5）
-        int densityDpi = metric.densityDpi;//密度DPI（120 / 160 / 240）
-        TextView info = (TextView) findViewById(R.id.devices_info);
-        info.setText(width + "x" + height + ", dpi:" + densityDpi + ", density:" + density);
+//        DisplayMetrics metric = new DisplayMetrics();
+//        getWindowManager().getDefaultDisplay().getMetrics(metric);
+//
+//        int width = metric.widthPixels;//宽度（PX）
+//        int height = metric.heightPixels;//高度（PX）
+//
+//        float density = metric.density;//密度（0.75 / 1.0 / 1.5）
+//        int densityDpi = metric.densityDpi;//密度DPI（120 / 160 / 240）
+//        TextView info = (TextView) findViewById(R.id.devices_info);
+//        info.setText(width + "x" + height + ", dpi:" + densityDpi + ", density:" + density);
 
         findViewById(R.id.conditions).setOnClickListener(this);
         findViewById(R.id.control).setOnClickListener(this);
