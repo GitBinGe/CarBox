@@ -23,5 +23,15 @@ public class ConditionsView extends PointPageView {
         findViewById(R.id.function_btn).setOnClickListener(new FunctionButtonClick());
     }
 
-
+    @Override
+    public void onPageSelected(int position) {
+        super.onPageSelected(position);
+        if (position == 0) {
+            TextView titleView = findViewById(R.id.title);
+            titleView.setText("Menu");
+        } else {
+            TextView titleView = findViewById(R.id.title);
+            titleView.setText("TPMS");
+        }
+    }
 }

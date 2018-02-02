@@ -21,7 +21,7 @@ public class SettingsView extends FrameLayout {
         LayoutInflater.from(context).inflate(R.layout.main_page, this);
 
         ImageView image = new ImageView(context);
-        image.setImageResource(R.mipmap.content_background);
+        image.setImageResource(R.mipmap.carbox_set_page1);
         LayoutParams params = new LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT,
                 Gravity.CENTER | Gravity.BOTTOM);

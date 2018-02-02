@@ -21,4 +21,16 @@ public class ControlView extends PointPageView {
         titleView.setText("Remote Start");
         findViewById(R.id.function_btn).setOnClickListener(new FunctionButtonClick());
     }
+
+    @Override
+    public void onPageSelected(int position) {
+        super.onPageSelected(position);
+        if (position == 0) {
+            TextView titleView = findViewById(R.id.title);
+            titleView.setText("Remote Start");
+        } else {
+            TextView titleView = findViewById(R.id.title);
+            titleView.setText("Seat Warmer");
+        }
+    }
 }
